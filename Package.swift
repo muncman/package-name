@@ -9,7 +9,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "LibraryProductName", // The umbrella library; UpperCamelCase
-            targets: ["ModuleName"]), // the modules you're building (since it is a library (above), vs executable)
+            targets: ["ModuleName", "SecondModuleName"]), // the modules you're building (since it is a library (above), vs executable)
             // Standard Library is umbrella, with UIKit and Foundation as modules.
     ],
     dependencies: [
@@ -22,8 +22,14 @@ let package = Package(
         .target(
             name: "ModuleName", // Must match targets above.
             dependencies: []),
+        .target(
+            name: "SecondModuleName",
+            dependencies: []),
         .testTarget(
             name: "ModuleNameTests",
             dependencies: ["ModuleName"]),
+        .testTarget(
+            name: "SecondModuleNameTests",
+            dependencies: ["SecondModuleName"]),
     ]
 )
