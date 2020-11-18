@@ -24,7 +24,7 @@ let package = Package(
             dependencies: []),
         .target(
             name: "SecondModuleName",
-            dependencies: []),
+            dependencies: ["ModuleName"]),
         .testTarget(
             name: "ModuleNameTests",
             dependencies: ["ModuleName"]),
